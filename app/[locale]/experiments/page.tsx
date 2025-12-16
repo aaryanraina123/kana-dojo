@@ -126,7 +126,7 @@ export default function ExperimentsPage() {
               className={clsx(
                 'p-6 rounded-xl',
                 'bg-[var(--card-color)] border border-[var(--border-color)]',
-                'hover:border-[var(--main-color)] hover:scale-[1.02]',
+                'hover:border-[var(--main-color)]',
                 'transition-all duration-250',
                 'flex flex-col gap-3'
               )}
