@@ -3,7 +3,6 @@ import { Link, useRouter, usePathname } from '@/core/i18n/routing';
 import {
   BookOpen,
   Brain,
-  CircleStar,
   CloudRain,
   Ghost,
   House,
