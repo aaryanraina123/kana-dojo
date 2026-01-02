@@ -64,7 +64,7 @@ function EmptyState() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className='mb-3 text-3xl font-black text-[var(--main-color)]'
+        className='mb-3 text-3xl font-bold text-[var(--main-color)]'
       >
         No Progress Yet
       </motion.h2>
@@ -148,7 +148,7 @@ export default function StatsPage({ className }: StatsPageProps) {
         className='flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between'
       >
         <div className='space-y-2'>
-          <h1 className='text-4xl font-black tracking-tight text-[var(--main-color)]'>
+          <h1 className='text-4xl font-bold tracking-tight text-[var(--main-color)]'>
             Your Progress
           </h1>
           <p className='text-lg text-[var(--secondary-color)]/70'>
@@ -175,7 +175,7 @@ export default function StatsPage({ className }: StatsPageProps) {
               <div className='flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[var(--secondary-color)]/20 bg-[var(--secondary-color)]/10'>
                 <AlertTriangle className='h-7 w-7 text-[var(--secondary-color)]' />
               </div>
-              <AlertDialogTitle className='text-2xl font-black text-[var(--main-color)]'>
+              <AlertDialogTitle className='text-2xl font-bold text-[var(--main-color)]'>
                 Reset All Progress?
               </AlertDialogTitle>
             </div>

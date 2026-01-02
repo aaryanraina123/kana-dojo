@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
+import { ActionButton } from '@/shared/components/ui/ActionButton';
 import type {
   CharacterMasteryItem,
   ContentFilter,
@@ -171,7 +172,7 @@ export default function CharacterMasteryPanel({
         {/* Header with filter tabs */}
         <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
           <div>
-            <h3 className='text-2xl font-black text-[var(--main-color)]'>
+            <h3 className='text-2xl font-bold text-[var(--main-color)]'>
               Character Mastery
             </h3>
             <p className='text-sm text-[var(--secondary-color)]/70'>
@@ -179,29 +180,38 @@ export default function CharacterMasteryPanel({
             </p>
           </div>
 
-          {/* Pill-style filter tabs */}
-          <div className='flex gap-1 rounded-full bg-[var(--background-color)] p-1'>
-            {CONTENT_FILTERS.map(filter => (
-              <button
-                key={filter.value}
-                onClick={() => setContentFilter(filter.value)}
-                className={cn(
-                  'relative cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300',
-                  contentFilter === filter.value
-                    ? 'text-[var(--main-color)]'
-                    : 'text-[var(--secondary-color)]/70 hover:text-[var(--main-color)]'
-                )}
-              >
-                {contentFilter === filter.value && (
-                  <motion.div
-                    layoutId='activeFilterTab'
-                    className='absolute inset-0 rounded-full bg-[var(--card-color)] shadow-sm'
-                    transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}
-                  />
-                )}
-                <span className='relative z-10'>{filter.label}</span>
-              </button>
-            ))}
+          {/* Pill-style filter tabs with smooth sliding animation */}
+          <div className='flex gap-1 rounded-[22px] bg-[var(--background-color)] p-1.5'>
+            {CONTENT_FILTERS.map(filter => {
+              const isSelected = contentFilter === filter.value;
+              return (
+                <div key={filter.value} className='relative'>
+                  {/* Smooth sliding background indicator */}
+                  {isSelected && (
+                    <motion.div
+                      layoutId='activeFilterTab'
+                      className='absolute inset-0 rounded-2xl border-b-10 border-[var(--main-color-accent)] bg-[var(--main-color)]'
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 30
+                      }}
+                    />
+                  )}
+                  <button
+                    onClick={() => setContentFilter(filter.value)}
+                    className={cn(
+                      'relative z-10 cursor-pointer rounded-2xl px-4 pt-2 pb-4 text-sm font-semibold transition-colors duration-300',
+                      isSelected
+                        ? 'text-[var(--background-color)]'
+                        : 'text-[var(--secondary-color)]/70 hover:text-[var(--main-color)]'
+                    )}
+                  >
+                    {filter.label}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -288,8 +298,8 @@ export default function CharacterMasteryPanel({
                 </div>
               </div>
 
-              {/* Mastery level summary - horizontal pills */}
-              <div className='flex flex-wrap items-center gap-3 border-t border-[var(--border-color)]/30 pt-6'>
+              {/* Mastery level summary - full-width border */}
+              <div className='-mx-6 flex flex-wrap items-center gap-3 border-t border-[var(--border-color)]/30 px-6 pt-6'>
                 {(
                   Object.entries(groupedByMastery) as [
                     MasteryLevel,
@@ -367,7 +377,7 @@ function CharacterRow({
       <div className='text-right'>
         <div
           className={cn(
-            'text-lg font-black',
+            'text-lg font-bold',
             isMastered
               ? 'text-[var(--main-color)]'
               : 'text-[var(--secondary-color)]'

@@ -100,7 +100,7 @@ export default function MasteryDistributionChart({
         {/* Header */}
         <div className='flex items-center justify-between'>
           <div>
-            <h3 className='text-2xl font-black text-[var(--main-color)]'>
+            <h3 className='text-2xl font-bold text-[var(--main-color)]'>
               Mastery Distribution
             </h3>
             <p className='text-sm text-[var(--secondary-color)]/70'>
@@ -113,7 +113,7 @@ export default function MasteryDistributionChart({
               animate={{ opacity: 1 }}
               className='flex flex-col items-end'
             >
-              <span className='text-3xl font-black text-[var(--main-color)]'>
+              <span className='text-3xl font-bold text-[var(--main-color)]'>
                 {total}
               </span>
               <span className='text-xs text-[var(--secondary-color)]'>
@@ -156,7 +156,7 @@ export default function MasteryDistributionChart({
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{ delay: 0.8 + idx * 0.1 }}
-                              className='text-sm font-black text-white/90'
+                              className='text-sm font-bold text-white/90'
                             >
                               {percent.toFixed(0)}%
                             </motion.span>
@@ -191,7 +191,7 @@ export default function MasteryDistributionChart({
                     />
                     <div className='flex-1'>
                       <div className='flex items-baseline gap-2'>
-                        <span className='text-2xl font-black text-[var(--main-color)]'>
+                        <span className='text-2xl font-bold text-[var(--main-color)]'>
                           {value}
                         </span>
                         <span className='text-sm text-[var(--secondary-color)]/60'>

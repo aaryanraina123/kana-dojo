@@ -1,12 +1,12 @@
 'use client';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import SimpleProgress from './SimpleProgress';
 import StreakProgress from './StreakProgress';
 import AchievementProgress from '@/features/Achievements/components';
 import { TrendingUp, Flame, Trophy } from 'lucide-react';
 import { useClick } from '@/shared/hooks/useAudio';
 import SidebarLayout from '@/shared/components/layout/SidebarLayout';
-import { ActionButton } from '@/shared/components/ui/ActionButton';
 import { cn } from '@/shared/lib/utils';
 
 type ViewType = 'statistics' | 'streak' | 'achievements';
@@ -16,17 +16,17 @@ const viewOptions: { value: ViewType; label: string; icon: React.ReactNode }[] =
     {
       value: 'statistics',
       label: 'Stats',
-      icon: <TrendingUp className={cn('h-5 w-5 ')} />
+      icon: <TrendingUp className='h-5 w-5' />
     },
     {
       value: 'streak',
       label: 'Streak',
-      icon: <Flame className={cn('h-5 w-5 ')} />
+      icon: <Flame className='h-5 w-5' />
     },
     {
       value: 'achievements',
       label: 'Achievements',
-      icon: <Trophy className={cn('h-5 w-5 ')} />
+      icon: <Trophy className='h-5 w-5' />
     }
   ];
 
@@ -36,35 +36,46 @@ const ProgressWithSidebar = () => {
 
   return (
     <SidebarLayout>
-      {/* View Toggle Switch */}
-      <div className={cn('flex justify-center px-2')}>
+      {/* View Toggle Switch with smooth sliding animation */}
+      <div className='flex justify-center px-2'>
         <div
           className={cn(
-            'inline-flex flex-wrap justify-center gap-2 rounded-3xl border-0 border-[var(--border-color)] bg-[var(--card-color)] p-2'
+            'inline-flex flex-wrap justify-center gap-1 rounded-[22px]',
+            'border border-[var(--border-color)] bg-[var(--card-color)] p-1.5'
           )}
         >
           {viewOptions.map(option => {
             const isSelected = currentView === option.value;
             return (
-              <ActionButton
-                key={option.value}
-                onClick={() => {
-                  setCurrentView(option.value);
-                  playClick();
-                }}
-                colorScheme={isSelected ? 'main' : undefined}
-                borderColorScheme={isSelected ? 'main' : undefined}
-                borderBottomThickness={isSelected ? 10 : 0}
-                borderRadius='3xl'
-                className={cn(
-                  'w-auto gap-1.5 px-8 py-4 text-sm sm:gap-2 sm:px-6',
-                  !isSelected &&
-                    'bg-transparent text-[var(--secondary-color)] hover:bg-[var(--border-color)]/50 hover:text-[var(--main-color)]'
+              <div key={option.value} className='relative'>
+                {/* Smooth sliding background indicator */}
+                {isSelected && (
+                  <motion.div
+                    layoutId='activeProgressTab'
+                    className='absolute inset-0 rounded-2xl border-b-10 border-[var(--main-color-accent)] bg-[var(--main-color)]'
+                    transition={{
+                      type: 'spring',
+                      stiffness: 300,
+                      damping: 30
+                    }}
+                  />
                 )}
-              >
-                {option.icon}
-                <span className={cn('max-sm:hidden')}>{option.label}</span>
-              </ActionButton>
+                <button
+                  onClick={() => {
+                    setCurrentView(option.value);
+                    playClick();
+                  }}
+                  className={cn(
+                    'relative z-10 flex cursor-pointer items-center gap-2 rounded-2xl px-6 pt-3 pb-5 text-sm font-semibold transition-colors duration-300',
+                    isSelected
+                      ? 'text-[var(--background-color)]'
+                      : 'text-[var(--secondary-color)] hover:text-[var(--main-color)]'
+                  )}
+                >
+                  {option.icon}
+                  <span className='max-sm:hidden'>{option.label}</span>
+                </button>
+              </div>
             );
           })}
         </div>

@@ -3,12 +3,13 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 import {
-  Trophy,
+  Swords,
   Target,
   Clock,
   Zap,
   CheckCircle,
-  Activity
+  Activity,
+  Trophy
 } from 'lucide-react';
 import type { GauntletOverallStats } from '../../types/stats';
 
@@ -85,7 +86,7 @@ function StatItem({
           <p className='text-xs font-medium text-[var(--secondary-color)]'>
             {label}
           </p>
-          <p className='text-xl font-black text-[var(--main-color)]'>{value}</p>
+          <p className='text-xl font-bold text-[var(--main-color)]'>{value}</p>
           {subValue && (
             <p className='text-xs text-[var(--secondary-color)]/60'>
               {subValue}
@@ -201,10 +202,10 @@ export default function GauntletStatsPanel({
             transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
             className='flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--main-color)]/20 bg-gradient-to-br from-[var(--main-color)]/20 to-[var(--secondary-color)]/10'
           >
-            <Trophy className='h-7 w-7 text-[var(--main-color)]' />
+            <Swords className='h-7 w-7 text-[var(--main-color)]' />
           </motion.div>
           <div>
-            <h3 className='text-2xl font-black text-[var(--main-color)]'>
+            <h3 className='text-2xl font-bold text-[var(--main-color)]'>
               Gauntlet
             </h3>
             <p className='text-sm text-[var(--secondary-color)]/70'>

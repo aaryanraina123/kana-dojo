@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 import { Clock, Target, Zap, Trophy } from 'lucide-react';
+import { ActionButton } from '@/shared/components/ui/ActionButton';
 import type { TimedModeStats, ContentType } from '../../types/stats';
 
 /**
@@ -74,7 +75,7 @@ function StatItem({
           <p className='text-xs font-medium text-[var(--secondary-color)]'>
             {label}
           </p>
-          <p className='text-xl font-black text-[var(--main-color)]'>{value}</p>
+          <p className='text-xl font-bold text-[var(--main-color)]'>{value}</p>
           {subValue && (
             <p className='text-xs text-[var(--secondary-color)]/60'>
               {subValue}
@@ -178,38 +179,56 @@ export default function BlitzStatsPanel({
       <div className='relative z-10 flex flex-col gap-6'>
         {/* Header */}
         <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
-          <div>
-            <h3 className='text-2xl font-black text-[var(--main-color)]'>
-              Blitz
-            </h3>
-            <p className='text-sm text-[var(--secondary-color)]/70'>
-              Speed challenge stats
-            </p>
+          <div className='flex items-center gap-4'>
+            <motion.div
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+              className='flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--main-color)]/20 bg-gradient-to-br from-[var(--main-color)]/20 to-[var(--secondary-color)]/10'
+            >
+              <Zap className='h-7 w-7 text-[var(--main-color)]' />
+            </motion.div>
+            <div>
+              <h3 className='text-2xl font-bold text-[var(--main-color)]'>
+                Blitz
+              </h3>
+              <p className='text-sm text-[var(--secondary-color)]/70'>
+                Speed challenge stats
+              </p>
+            </div>
           </div>
 
-          {/* Pill tabs */}
-          <div className='flex gap-1 rounded-full bg-[var(--background-color)] p-1'>
-            {CONTENT_TABS.map(tab => (
-              <button
-                key={tab.value}
-                onClick={() => setActiveTab(tab.value)}
-                className={cn(
-                  'relative cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300',
-                  activeTab === tab.value
-                    ? 'text-[var(--main-color)]'
-                    : 'text-[var(--secondary-color)]/70 hover:text-[var(--main-color)]'
-                )}
-              >
-                {activeTab === tab.value && (
-                  <motion.div
-                    layoutId='activeTimedTab'
-                    className='absolute inset-0 rounded-full bg-[var(--card-color)] shadow-sm'
-                    transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}
-                  />
-                )}
-                <span className='relative z-10'>{tab.label}</span>
-              </button>
-            ))}
+          {/* Pill tabs with smooth sliding animation */}
+          <div className='flex gap-1 rounded-[22px] bg-[var(--background-color)] p-1.5'>
+            {CONTENT_TABS.map(tab => {
+              const isSelected = activeTab === tab.value;
+              return (
+                <div key={tab.value} className='relative'>
+                  {/* Smooth sliding background indicator */}
+                  {isSelected && (
+                    <motion.div
+                      layoutId='activeBlitzTab'
+                      className='absolute inset-0 rounded-2xl border-b-10 border-[var(--main-color-accent)] bg-[var(--main-color)]'
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 30
+                      }}
+                    />
+                  )}
+                  <button
+                    onClick={() => setActiveTab(tab.value)}
+                    className={cn(
+                      'relative z-10 cursor-pointer rounded-2xl px-5 pt-2 pb-4 text-sm font-semibold transition-colors duration-300',
+                      isSelected
+                        ? 'text-[var(--background-color)]'
+                        : 'text-[var(--secondary-color)]/70 hover:text-[var(--main-color)]'
+                    )}
+                  >
+                    {tab.label}
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
 

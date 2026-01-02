@@ -172,22 +172,21 @@ const UnitSelector = () => {
   return (
     <div className='flex flex-col'>
       {/* Modern Toggle-Style Unit Selector */}
-      <div className='flex flex-col gap-4 rounded-2xl bg-[var(--card-color)] p-4 md:flex-row'>
+      <div className='flex flex-col gap-2 rounded-[2rem] bg-[var(--card-color)] p-2 md:flex-row'>
         {collections.map(collection => {
           const isSelected = collection.name === selectedCollection;
 
           return (
             <div key={collection.name} className='relative flex-1'>
-              {/* Sliding indicator - provides visible background for selected state */}
+              {/* Sliding indicator - smooth animation matching Stats page */}
               {isSelected && (
                 <motion.div
                   layoutId='collection-selector-indicator'
-                  className='absolute inset-0 rounded-3xl border-b-10 border-[var(--main-color-accent)] bg-[var(--main-color)]/80'
+                  className='absolute inset-0 rounded-3xl border-b-10 border-[var(--main-color-accent)] bg-[var(--main-color)]'
                   transition={{
                     type: 'spring',
-                    stiffness: 450,
-                    damping: 30,
-                    mass: 1
+                    stiffness: 300,
+                    damping: 30
                   }}
                 />
               )}

@@ -48,7 +48,7 @@ function StatItem({
         <Icon className='h-6 w-6' />
       </div>
       <div className='flex flex-col'>
-        <span className='text-2xl font-black text-[var(--main-color)]'>
+        <span className='text-2xl font-bold text-[var(--main-color)]'>
           {value}
         </span>
         <span className='text-xs font-medium text-[var(--secondary-color)]'>
@@ -99,7 +99,7 @@ export default function AchievementSummaryBar({
               <Trophy className='h-7 w-7 text-[var(--main-color)]' />
             </motion.div>
             <div>
-              <h3 className='text-2xl font-black text-[var(--main-color)]'>
+              <h3 className='text-2xl font-bold text-[var(--main-color)]'>
                 Achievements
               </h3>
               <p className='text-sm text-[var(--secondary-color)]/70'>

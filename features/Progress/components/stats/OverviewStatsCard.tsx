@@ -5,6 +5,11 @@ import { motion } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 
 /**
+ * Configuration: Set to true for top border, false for bottom border
+ */
+const USE_TOP_BORDER = true;
+
+/**
  * Props for the OverviewStatsCard component
  */
 export interface OverviewStatsCardProps {
@@ -63,9 +68,12 @@ export default function OverviewStatsCard({
       {/* Decorative geometric shape - top right corner */}
       <div className='absolute -top-8 -right-8 h-24 w-24 rounded-full bg-gradient-to-br from-[var(--main-color)]/8 to-[var(--secondary-color)]/5 opacity-60 blur-2xl transition-opacity duration-300 group-hover:opacity-100' />
 
-      {/* Smooth gradient bottom accent bar */}
+      {/* Smooth gradient accent bar - position controlled by USE_TOP_BORDER */}
       <motion.div
-        className='absolute right-0 bottom-0 left-0 h-1.5 rounded-b-3xl bg-gradient-to-r from-[var(--main-color)] via-[var(--secondary-color)] to-[var(--main-color)]'
+        className={cn(
+          'absolute right-0 left-0 h-1.5 bg-gradient-to-r from-[var(--main-color)] via-[var(--secondary-color)] to-[var(--main-color)]',
+          USE_TOP_BORDER ? 'top-0 rounded-t-3xl' : 'bottom-0 rounded-b-3xl'
+        )}
         initial={{ opacity: 0, scaleX: 0 }}
         animate={{ opacity: 1, scaleX: 1 }}
         transition={{ duration: 0.8, delay: index * 0.08 + 0.3 }}
@@ -109,7 +117,7 @@ export default function OverviewStatsCard({
         {/* Value and title */}
         <div className='space-y-1'>
           <motion.div
-            className='text-4xl font-black tracking-tight text-[var(--main-color)]'
+            className='text-4xl font-bold tracking-tight text-[var(--main-color)]'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: index * 0.08 + 0.2 }}
