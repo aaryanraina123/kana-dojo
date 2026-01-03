@@ -1,5 +1,16 @@
 [
   {
+    "version": "0.1.13",
+    "date": "January 3, 2026",
+    "changes": [
+      "Premium Learning Experience: Added smooth, Duolingo-inspired animations and a sleek new bottom bar feedback system across all game modes",
+      "Enhanced Visuals: Revamped the Progress and Achievements dashboards with a premium, modern design and smoother tab transitions",
+      "Improved Controls: Refined keyboard shortcuts and fixed layout issues for a faster, more fluid answering experience",
+      "Stunning Animations: Added elegant entry animations to character tiles and game elements for a more polished feel",
+      "Stability Fix: Resolved a rare crash when loading progress statistics with certain saved data"
+    ]
+  },
+  {
     "version": "0.1.12",
     "date": "December 24, 2025",
     "changes": [
