@@ -144,7 +144,7 @@ module.exports = {
           'Fork this repository',
           'Make the changes described above',
           'Submit a Pull Request linking to this issue (use `Closes #{issueNumber}`)',
-          "Star our repo ⭐ and drink some delicious bubble tea 🍹",
+          'Star our repo ⭐ and drink some delicious bubble tea 🍹',
           'Wait for review!'
         ]
       },
@@ -202,7 +202,8 @@ module.exports = {
         'Add this new theme to the array:',
         'Save the file and commit the changes',
         'Submit a Pull Request with title: `feat(theme): add {name} theme`',
-        'Link this issue using `Closes #<issue_number>`'
+        'Link this issue using `Closes #<issue_number>`',
+        'Star our repo ⭐, drink some delicious bubble tea 🍹 and wait for review!'
       ],
       footer: "**Questions?** Comment below and we'll help! 🙌"
     },
@@ -222,7 +223,8 @@ module.exports = {
         'Make sure to add a comma after the previous last item',
         'Save the file and commit the changes',
         'Submit a Pull Request with title: `content: add japan fact #{id}`',
-        'Link this issue using `Closes #<issue_number>`'
+        'Link this issue using `Closes #<issue_number>`',
+        'Star our repo ⭐, drink some delicious bubble tea 🍹 and wait for review!'
       ],
       footer: "**Questions?** Comment below and we'll help! 🙌"
     },
@@ -243,7 +245,8 @@ module.exports = {
         'Make sure to add a comma after the previous last item',
         'Save the file and commit the changes',
         'Submit a Pull Request with title: `content: add japanese proverb #{id}`',
-        'Link this issue using `Closes #<issue_number>`'
+        'Link this issue using `Closes #<issue_number>`',
+        'Star our repo ⭐, drink some delicious bubble tea 🍹 and wait for review!'
       ],
       footer: "**Questions?** Comment below and we'll help! 🙌"
     }
