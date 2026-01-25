@@ -444,6 +444,7 @@ const Sidebar = () => {
         'lg:h-auto lg:border-r-1 lg:px-3',
         'lg:pb-12',
       )}
+      // style={{ scrollbarGutter: 'stable' }}
     >
       {/* Logo */}
       <h1

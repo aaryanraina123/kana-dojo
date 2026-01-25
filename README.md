@@ -19,17 +19,6 @@
 
 ---
 
-## Badges (for forks)
-
-If you fork this project, add these badges to your README:
-
-```markdown
-[![CI](https://github.com/YOUR_USERNAME/kana-dojo/actions/workflows/pr-check.yml/badge.svg)](https://github.com/YOUR_USERNAME/kana-dojo/actions)
-[![Issues](https://img.shields.io/github/issues/YOUR_USERNAME/kana-dojo)](https://github.com/YOUR_USERNAME/kana-dojo/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/YOUR_USERNAME/kana-dojo)](https://github.com/YOUR_USERNAME/kana-dojo/pulls)
-[![Contributors](https://img.shields.io/github/contributors/YOUR_USERNAME/kana-dojo)](https://github.com/YOUR_USERNAME/kana-dojo/graphs/contributors)
-```
-
 [Live Demo](https://kanadojo.com) · [Documentation](./docs/) · [Contributing](./CONTRIBUTING.md)
 
 </div>
@@ -37,14 +26,6 @@ If you fork this project, add these badges to your README:
 ## About
 
 KanaDojo is an engaging web-based Japanese learning platform that makes mastering Hiragana, Katakana, Kanji, and Vocabulary fun and intuitive. Built with a focus on aesthetics, customization, and effective learning, it provides an immersive training environment for Japanese language learners at all levels.
-
-## Quick Links
-
-- **App**: https://kanadojo.com
-- **Practice**: https://kanadojo.com/en/hiragana-practice · https://kanadojo.com/en/katakana-practice · https://kanadojo.com/en/kanji-practice
-- **Docs**: https://deepwiki.com/lingdojo/kana-dojo · ./docs/
-- **Contributing**: ./CONTRIBUTING.md
-- **Good first issues**: https://github.com/lingdojo/kana-dojo/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
 
 ## Key Features
 
@@ -123,10 +104,9 @@ Contributions are welcome! Whether you're fixing bugs, adding features, improvin
 
 This project is licensed under the AGPL 3.0 License — see [LICENSE.md](./LICENSE.md) for details.
 
-## Links
+## Contact
 
-- **Website**: [kanadojo.com](https://kanadojo.com)
-- **Repository**: [github.com/lingdojo/kanadojo](https://github.com/lingdojo/kanadojo)
+- **Discord**: https://discord.gg/CyvBNNrSmb
 - **Email**: dev@kanadojo.com
 
 ---
