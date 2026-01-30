@@ -668,7 +668,6 @@ const WelcomeModal = () => {
                   className={clsx(
                     'flex cursor-pointer items-center justify-center gap-2 rounded-xl px-6 py-2 sm:px-8 sm:py-3',
                     'text-sm font-medium text-[var(--main-color)] sm:text-base',
-                    buttonBorderStyles,
                     'transition-all duration-200 hover:bg-[var(--background-color)] active:scale-98',
                   )}
                 >

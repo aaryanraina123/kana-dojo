@@ -3,7 +3,7 @@
   "subtitle": "Let's personalize your learning experience",
   "steps": {
     "welcome": {
-      "demoCta": "Jump into the Demo"
+      "demoCta": "Try the Demo first"
     },
     "behavior": {
       "title": "Configure Behavior",
@@ -25,7 +25,7 @@
       "title": "Choose Your Theme",
       "subtitle": "Select a theme that matches your style",
       "randomTheme": "Random Theme",
-      "moreInfo": "💡 More themes available in",
+      "moreInfo": "More themes available in",
       "preferences": "Preferences"
     },
     "fonts": {
@@ -33,7 +33,7 @@
       "subtitle": "Choose the perfect font for characters",
       "randomFont": "Random Font",
       "default": "(default)",
-      "moreInfo": "💡 More fonts available in",
+      "moreInfo": "More fonts available in",
       "preferences": "Preferences"
     },
     "complete": {
