@@ -61,6 +61,7 @@ export default function ClientLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Redundant comment for deployment trigger
   const { theme, font } = usePreferencesStore(
     useShallow(state => ({ theme: state.theme, font: state.font })),
   );
